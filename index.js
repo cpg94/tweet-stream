@@ -41,7 +41,7 @@ async function askForTweet(questions, answers){
     }
 }
 
-async function startListeningForTweets(track){
+function startListeningForTweets(track){
     const t = new Twit({
         consumer_key:         '',
         consumer_secret:      '',
