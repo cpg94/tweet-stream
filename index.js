@@ -50,6 +50,7 @@ async function askForTweet(questions, answers){
 }
 
 function startListeningForTweets(track){
+    // Have to add your own apps access/consumer tokens
     const t = new Twit({
         consumer_key:         'lQDK3H6w73lUiilmGMKuRRSQM',
         consumer_secret:      'vtqChuljHEomIpnagWoQsGJlYL0GTTTm7wZ1wL7erAaT0KQwmb',
