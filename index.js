@@ -1,7 +1,7 @@
 const Twit = require('twit');
 const inquirer = require('inquirer');
 
-async function main(){
+function main(){
     console.log('What tweets do you want to watch?');
     const question = [
 		{
