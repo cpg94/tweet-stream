@@ -1,6 +1,12 @@
 # Tweet Streamer
 
-Simple Node script to watch topics on twitter.
+Simple Node script to watch topics on twitter and stream to client via socket.io.
+
+Something like this on client.
+
+`socket.on('tweet', (tweet) => {
+  console.log(tweet)
+});`
 
 To start:
 
