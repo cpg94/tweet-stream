@@ -25,7 +25,7 @@ async function askForTweet(questions, answers){
 
         if(!answer) {
             console.log('Can not be blank!');
-            askForTweet(questions);
+            askForTweet(questions, answers);
         } else {
             answers.push(answer);
         }
