@@ -4,6 +4,11 @@ const app = require('express')();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
+server.listen(8132, () => {
+    console.log('Server Started.')
+    main();
+});
+
 function main(){
     console.log('What tweets do you want to watch?');
     const question = [
@@ -46,10 +51,10 @@ async function askForTweet(questions, answers){
 
 function startListeningForTweets(track){
     const t = new Twit({
-        consumer_key:         '',
-        consumer_secret:      '',
-        access_token:         '',
-        access_token_secret:  '',
+        consumer_key:         'lQDK3H6w73lUiilmGMKuRRSQM',
+        consumer_secret:      'vtqChuljHEomIpnagWoQsGJlYL0GTTTm7wZ1wL7erAaT0KQwmb',
+        access_token:         '24532332-z0DzhF1ORg4DrhO7zl1IovgXG3TglgkehGCtmDDAc',
+        access_token_secret:  '5AucVtFlK5UhPxqNZnaG7UxkqgAWug6caxf2ArhcXoOHw',
     });
 
     const stream = t.stream('statuses/filter', { track });
@@ -59,5 +64,3 @@ function startListeningForTweets(track){
         io.emit('tweet', tweet.text);
     })
 }
-
-main();
