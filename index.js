@@ -1,5 +1,8 @@
 const Twit = require('twit');
 const inquirer = require('inquirer');
+const app = require('express')();
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
 
 function main(){
     console.log('What tweets do you want to watch?');
@@ -52,13 +55,9 @@ function startListeningForTweets(track){
     const stream = t.stream('statuses/filter', { track });
     console.log('Watching Tweets...')
     stream.on('tweet', (tweet) => {
-        logTweet(tweet);
+        console.log(tweet.text)
+        io.emit('tweet', tweet.text);
     })
-}
-
-
-function logTweet(tweet){
-    console.log(`📣  - ${tweet.text}`)
 }
 
 main();
